@@ -231,12 +231,10 @@ ApplicationWindow {
                 target: cppRain
                 onRainChanged: {
                     if(cppRain.rain==true) {
-                        rainEmitter.enabled = true
-                        cppMoisture.scaled = 1.0;
+                        rainStatus(true)
                     }
                     else {
-                        rainEmitter.enabled = false
-                        cppMoisture.scaled = 0.0
+                        rainStatus(false)
                     }
                 }
             }
@@ -305,15 +303,40 @@ ApplicationWindow {
             gui.car = car
         }
         Connections {
-                        target: cppDay
-                        onDaytimeChanged: {
-                            if(cppDay.daytime === DaySimulator.DAY) {
-                                streetImageNight.opacity = 0
-                            }
-                            else {
-                                streetImageNight.opacity = 1
-                            }
-                        }
-                    }
+            target: cppDay
+            onDaytimeChanged: {
+                if(cppDay.daytime === DaySimulator.DAY) {
+                    streetImageNight.opacity = 0
+                }
+                else {
+                    streetImageNight.opacity = 1
+                }
+            }
+        }
+    }
+
+    Button {
+        id: rainButton
+        text: qsTr("Rain")
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 10*scalingFactor
+        onClicked: {
+            rainEmitter.enabled ? rainStatus(false) : rainStatus(true);
+        }
+    }
+
+
+    function rainStatus(status) {
+        if(status===true) {
+            rainEmitter.enabled = true;
+            cppMoisture.scaled = 1.0
+            rainButton.text = "Stop rain";
+        }
+        else {
+            rainEmitter.enabled = false
+            cppMoisture.scaled = 0.0
+            rainButton.text = "Start rain"
+        }
     }
 }
