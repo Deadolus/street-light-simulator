@@ -17,7 +17,7 @@ CONFIG += coverage
 LIBS += -lgcov --coverage
 
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage -O0
-QMAKE_LFLAGS += -fprofile-arcs -ftest-coverage -O0 -lgcov --coverage
+QMAKE_LFLAGS += -fprofile-arcs -ftest-coverage -O0
 
 # Input
 SOURCES += main.cpp \ 
@@ -43,4 +43,5 @@ COMPILER = $$(CC)
 contains( COMPILER , clang) {
   QMAKE_CXX = clang++
   QMAKE_CC = clang
+  QMAKE_CXXFLAGS += -stdlib=libc++
 }
