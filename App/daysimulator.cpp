@@ -18,13 +18,13 @@ DaySimulator::DaySimulator(QObject *parent) : EventSimulator(parent)
 
 }
 
-void DaySimulator::setRandomTime(uint randomTime)
+void DaySimulator::setRandomTime(const uint &randomTime)
 {
     EventSimulator::setRandomTime(randomTime);
     setTiming( ((getCycle()-randomTime) / 2.0) / getCycle());
 }
 
-void DaySimulator::setCycle(uint cycle)
+void DaySimulator::setCycle(const uint &cycle)
 {
     EventSimulator::setCycle(cycle);
     setTiming( ((cycle-getRandomTime()) / 2.0) / cycle);

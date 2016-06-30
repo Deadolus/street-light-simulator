@@ -32,9 +32,9 @@ class DaySimulator : public EventSimulator
       explicit DaySimulator(QObject *parent = nullptr);
 
     /// Sets the random Time of the day, e.g. how much day/night shall be random
-    void setRandomTime(uint randomTime);
+    void setRandomTime(const uint &randomTime);
     /// Sets the cycle length of the day, e.g. how long one "24hour day" (day plus night) shall be
-    void setCycle(uint cycle);
+    void setCycle(const uint &cycle);
     ///Returns the current status of fthe daytime variable
     Daytime getDaytime() const;
     ///Returns when the night will start for the last calculated cycle
