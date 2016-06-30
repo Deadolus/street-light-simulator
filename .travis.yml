@@ -1,6 +1,9 @@
 sudo: required
 dist: trusty
 language: cpp
+compiler: 
+  - clang
+  - gcc
 addons: 
   artifacts: 
     paths:
