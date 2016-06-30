@@ -9,7 +9,7 @@
 
 namespace {
 const QString SERVICE_NAME = "ch.bbv.streetlight";
-const QString cPATH_NAME = "/ch/bbv/streetlight";
+const QString PATH_NAME = "/ch/bbv/streetlight";
 }
 
 class StateExchangerTest : public testing::Test {
