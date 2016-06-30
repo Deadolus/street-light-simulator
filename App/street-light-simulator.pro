@@ -38,3 +38,9 @@ HEADERS += \
     eventsimulator.h \
     rainsimulator.h \
     carsimulator.h
+
+COMPILER = $$(CC)
+contains( COMPILER , clang) {
+  QMAKE_CXX = clang++
+  QMAKE_CC = clang
+}

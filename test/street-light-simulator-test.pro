@@ -28,7 +28,6 @@ SOURCES += \
     rainsimulator_test.cpp
 
 
-
 HEADERS += \
 ../App/daysimulator.h \
 ../App/stateexchanger.h \
@@ -42,3 +41,9 @@ HEADERS += \
 
 
 LIBS += -lgtest -pthread -lgtest_main -lgcov --coverage
+
+COMPILER = $$(CC)
+contains( COMPILER , clang) {
+  QMAKE_CXX = clang++
+  QMAKE_CC = clang
+}
