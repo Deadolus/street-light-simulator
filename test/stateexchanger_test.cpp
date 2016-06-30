@@ -7,8 +7,10 @@
 #include <QSignalSpy>
 #include <memory>
 
-#define SERVICE_NAME "ch.bbv.streetlight"
-#define PATH_NAME "/ch/bbv/streetlight"
+namespace {
+const QString SERVICE_NAME = "ch.bbv.streetlight";
+const QString cPATH_NAME = "/ch/bbv/streetlight";
+}
 
 class StateExchangerTest : public testing::Test {
     //public:
